@@ -12,5 +12,8 @@
   "scripts": {
     "build": "browserify --debug --transform babelify app.jsx --outfile bundle.js"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "fluxxor": "^1.6.0"
+  }
 }
