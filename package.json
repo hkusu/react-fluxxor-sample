@@ -1,19 +1,19 @@
 {
-  "name": "react-babel-browserify-gulp-sample",
+  "name": "react-fluxxor-sample",
   "version": "0.0.1",
-  "devDependencies": {
+  "dependencies": {
     "react": "^0.13.3",
+    "fluxxor": "^1.6.0"
+  },
+  "devDependencies": {
     "browserify": "^10.2.1",
     "babelify": "^6.1.1",
+    "browser-sync": "^2.7.12",
     "gulp": "^3.8.11",
-    "vinyl-source-stream": "^1.1.0",
-    "gulp-webserver": "^0.9.1"
+    "gulp-shell": "^0.4.2"
   },
   "scripts": {
-    "build": "browserify --debug --transform babelify app.jsx --outfile bundle.js"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "fluxxor": "^1.6.0"
-  }
+    "build": "browserify --debug --transform babelify ./src/app.jsx > ./dest/bundle.js"
+    },
+  "license": "MIT"
 }
