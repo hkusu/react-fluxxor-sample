@@ -11,6 +11,11 @@ gulp.task('build:html', function() {
     .pipe(gulp.dest('./dest/'))
 });
 
+gulp.task('watch:src', function() {
+  gulp.watch('./src/*.jsx', ['build:js']);
+  gulp.watch('./src/*.html', ['build:html']);
+});
+
 gulp.task('browser-sync:run', function() {
   browserSync.init({
     server: {
@@ -18,16 +23,12 @@ gulp.task('browser-sync:run', function() {
       index: "index.html"
     }
   });
+  gulp.watch('./dest/*', ['browser-sync:reload']);
 });
 
 gulp.task('browser-sync:reload', function() {
   browserSync.reload();
 });
 
-gulp.task('build', ['build:html', 'build:js']);
-gulp.task('watch', function() {
-  gulp.watch('./src/*.jsx', ['build:js']);
-  gulp.watch('./src/*.html', ['build:html']);
-  gulp.watch('./dest/*', ['browser-sync:reload']);
-});
-gulp.task('serve', ['watch', 'browser-sync:run']);
+gulp.task('build', ['build:js', 'build:html']);
+gulp.task('serve', ['build', 'watch:src', 'browser-sync:run']);

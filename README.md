@@ -17,7 +17,7 @@ $ npm run build
 or
 
 ```
-$ $(npm bin)/gulp [build|watch|serve]
+$ $(npm bin)/gulp [build|serve]
 ```
 
 ## Demo
